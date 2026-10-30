@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
        @total_price = @subscriptions.sum(:price)
     end
 
-    def show  
+    def show
     end
 
     def new
@@ -18,18 +18,18 @@ class SubscriptionsController < ApplicationController
         @subscription = current_user.subscriptions.build(subscription_params)
 
         if @subscription.save
-            redirect_to @subscription, notice: 'Assinatura cadastrada com sucesso!'
+            redirect_to subscriptions_path, notice: "Assinatura cadastrada com sucesso!"
         else
             render :new, status: :unprocessable_entity
         end
     end
 
-    def edit   
+    def edit
     end
 
-    def update 
+    def update
         if @subscription.update(subscription_params)
-            redirect_to @subscription, notice: 'Assinatura atualizada com sucesso!'
+            redirect_to @subscription, notice: "Assinatura atualizada com sucesso!"
         else
             render :edit, status: :unprocessable_entity
         end
@@ -37,7 +37,7 @@ class SubscriptionsController < ApplicationController
 
     def destroy
          @subscription.destroy
-         redirect_to subscriptions_path, notice: 'Assinatura apagada com sucesso!'
+         redirect_to subscriptions_path, notice: "Assinatura apagada com sucesso!"
     end
 
 private
