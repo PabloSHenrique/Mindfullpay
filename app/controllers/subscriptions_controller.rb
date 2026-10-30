@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
         @subscription = current_user.subscriptions.build(subscription_params)
 
         if @subscription.save
-            redirect_to @subscription, notice: 'Assinatura cadastrada com sucesso!'
+            redirect_to subscriptions_path, notice: 'Assinatura cadastrada com sucesso!'
         else
             render :new, status: :unprocessable_entity
         end
