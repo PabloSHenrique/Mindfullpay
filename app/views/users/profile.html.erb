@@ -1,0 +1,40 @@
+<div class="container mt-4 mb-3">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4 p-md-5">
+          
+          <h3 class="card-title text-center mb-4 fw-bold text-dark">Meu Perfil</h3>
+
+          <div class="mb-3">
+            <label class="form-label small fw-semibold text-muted">Nome</label>
+            <p class="form-control-plaintext bg-light px-3 py-2 rounded-2 border"><%= @user.name %></p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small fw-semibold text-muted">Telefone</label>
+            <p class="form-control-plaintext bg-light px-3 py-2 rounded-2 border"><%= @user.phone.presence || "Não informado" %></p>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label small fw-semibold text-muted">E-mail</label>
+            <p class="form-control-plaintext bg-light px-3 py-2 rounded-2 border"><%= @user.email %></p>
+          </div>
+
+          <!-- Botões de Ação organizados -->
+          <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mt-4 pt-3 border-top">
+            <div class="d-flex gap-2">
+              <%= link_to "Editar Dados", edit_user_registration_path, class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to "Voltar", root_path, class: "btn btn-outline-secondary btn-sm" %>
+            </div>
+            
+            <%= button_to "Excluir Conta", user_registration_path, data: { confirm: "Tem certeza que deseja excluir sua conta?", turbo_confirm: "Tem certeza que deseja excluir sua conta?" }, method: :delete, class: "btn btn-outline-danger btn-sm" %>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
